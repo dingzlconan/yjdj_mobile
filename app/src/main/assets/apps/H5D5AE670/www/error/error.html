@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html class="u-fullscreen">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="mui.min.css">
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css"/>-->
+		<style type="text/css">
+			.mui-content {
+				height: 100%;
+				position: relative;
+				background-color: white;
+			}
+
+			.mui-bar-nav {
+				background-color: #00d2ff;
+			}
+
+			.mui-icon-left-nav:before {
+				color: white;
+			}
+
+			.mui-bar-nav .mui-title {
+				color: white;
+			}
+
+			.u-fullscreen {
+				position: absolute;
+				top:0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+			}
+
+			.m-error {
+				height: 415px;
+				position: absolute;
+				top:50%;
+				margin-top: -192px;
+				width: 100%;
+			}
+
+			.pic {
+				width: 200px;
+				margin:0 auto;
+
+			}
+
+			.pic img {
+				width: 100%;
+			}
+
+			.btn {
+				width: 375px;
+				margin:0 auto;
+			}
+
+			.mui-btn {
+				padding: 8px 47px;
+				font-size: 18px;
+				margin: 0 25px;
+				border-radius: 20px;
+			}
+
+			.font {
+				height: 160px;
+				font-family: "SimHei";
+				text-align: center;
+			}
+
+			.font .f1 {
+				font-size: 36px;
+				height: 70px;
+    			line-height: 70px;
+			}
+
+			.font .f2 {
+				font-size: 18px;
+			    line-height: 30px;
+			}
+		</style>
+		
+	</head>
+	<body class="u-fullscreen">
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" id="back"></a>
+			<h1 class="mui-title">404</h1>
+		</header>
+		<div class="mui-content">
+			<div class="m-error">
+				<div class="pic">
+					<img src="error.png">
+				</div>
+				<div class="font">
+					<div class="f1">sorry</div>
+					<div class="f2">网路不给力，请稍后再试!</div>
+				</div>
+				<div class="btn">
+					<div class="mui-btn mui-btn-primary" id="restart">重启</div>
+					<button type="button" id="close" class="mui-btn mui-btn-primary mui-btn-outlined">关闭</button>
+				</div>
+			</div>
+		</div>
+		<script src="mui.min.js"></script>
+		<script>
+			mui.init({
+				swipeBack:true //启用右滑关闭功能
+			});
+
+			document.addEventListener( "plusready", function(){
+
+				// back  restart close
+				var back = document.getElementById("back");
+				var restart = document.getElementById("restart");
+				var close = document.getElementById("close");
+
+				back.addEventListener("tap",function(){
+					mui.back();
+				});
+
+				restart.addEventListener("tap",function(){
+					plus.runtime.restart();
+				});
+
+				close.addEventListener("tap",function(){
+					plus.runtime.quit();
+				});
+
+			});
+
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,50 @@
+{
+  "error.html": {
+    "refer": [
+      "index.html"
+    ],
+    "resources": []
+  },
+  "static.html": {
+    "refer": [
+      "view/sysframe/login.html",
+      "view/sysframe/index.html"
+    ],
+    "resources": []
+  },
+  "view/sysframe/login.html": {
+    "refer": [
+      "index.html",
+      "view/sysframe/index.html"
+    ],
+    "resources": []
+  },
+  "error/error.html": {
+    "resources": [
+      "view/sysframe/index.html",
+      "./index.html"
+    ],
+    "refer": [
+      "view/sysframe/index.html",
+      "static.html",
+      "view/sysframe/login.html"
+    ]
+  },
+  "view/sysframe/index.html": {
+    "refer": [
+      "error/error.html",
+      "view/sysframe/login.html",
+      "view/bus/file/personalfile/profileIndex.html",
+      "static.html",
+      "index.html",
+      "blank.html"
+    ],
+    "resources": []
+  },
+  "./index.html": {
+    "refer": [
+      "error/error.html"
+    ],
+    "resources": []
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <script type="text/javascript" src="../../mobile/util.js"></script>
+    <script type="text/javascript">
+		document.addEventListener("plusready", onPlusReady, false);
+
+		//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+		function onPlusReady() {
+			var s = plus.storage.getItem('zeboneServer');
+			var n = plus.storage.getItem('zeboneServerName');
+			var ip_port = "192.168.90.40:8080";
+			var name = "MobileHealth";
+			var t = plus.storage.getItem('zeboneTokenId');
+			if (s!=null) {
+				ip_port = s;
+			}
+			if (n!=null) {
+				name = n;
+			}
+			plus.storage.setItem('zeboneServer',ip_port);
+			plus.storage.setItem('zeboneServerName',name);
+			localStorage.setItem("AppPath","file://"+plus.io.convertLocalFileSystemURL("_www/"));
+			localStorage.setItem("HomePath","http://"+plus.storage.getItem('zeboneServer')+"/"+plus.storage.getItem('zeboneServerName')+"/");
+			if (t==null) {
+				window.location.href = "view/sysframe/login.html";
+			}	 
+			 else {
+				window.location.href = "view/sysframe/index.html?tokenId="+t;
+			}
+		}
+
+   		
+    </script>
+</head>
+<body>
+	
+</body>
+</html>
